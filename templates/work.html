@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+TC:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="work.css">
+</head>
+
+<body class="work-page">
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav class="work-nav">
+        <div class="nav-left">
+            <a href="index.html" class="work-nav-logo">
+                <img src="logo.png" alt="Lemon">
+            </a>
+            <a href="index.html#works" class="work-link-back">
+                ← Back to Works
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li class="has-dropdown">
+                <a href="index.html#works">Works</a>
+                <ul class="dropdown">
+{{nav}}
+                </ul>
+            </li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="detail-header">
+        <p class="detail-cat">{{en}}</p>
+        <h1 class="detail-title">{{pageTitle}}</h1>
+    </header>
+
+    <!-- BODY -->
+    <main class="detail-body">
+        <div class="image-stack">
+{{works}}
+        </div>
+    </main>
+
+    <!-- RELATED WORKS -->
+    <section class="related-section">
+        <div class="related-header">
+            <h2 class="related-title">Other Works</h2>
+        </div>
+        <div class="related-grid">
+{{related}}
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <img src="logo.png" alt="Lemon" class="footer-logo">
+        <div class="footer-contact-links">
+            <a href="mailto:komo2102@gmail.com" class="footer-link">Email</a>
+            <a href="https://www.behance.net/kkkomo2102" target="_blank" class="footer-link">Behance</a>
+            <a href="https://www.instagram.com/ball_ball_cute?igsh=MTl1d2VodnV4YzM5aw%3D%3D&utm_source=qr"
+                target="_blank" class="footer-link footer-ig" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                </svg>
+                Instagram
+            </a>
+            <a href="index.html" class="footer-link">Home</a>
+        </div>
+        <p style="font-size: 0.6rem; color: #999; letter-spacing: 0.2em;">© 2024 Lemon Portfolio · Designed by Lemon</p>
+        <div class="footer-pattern"></div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+    <script src="script.js"></script>
+</body>
+
+</html>

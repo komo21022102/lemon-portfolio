@@ -1,0 +1,87 @@
+{
+  "slug": "illustration",
+  "order": 2,
+  "name": "插畫視覺",
+  "fullName": "插畫視覺設計",
+  "en": "Illustration",
+  "pageTitle": "視覺插畫",
+  "cover": "/works/illustration-01.webp",
+  "works": [
+    {
+      "type": "image",
+      "image": "/works/illustration-01.webp",
+      "alt": "Illustration 02",
+      "caption": "以山水與魚為主題的視覺創作，呈現流動的時間與寧靜的空間感。"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-02.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-03.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-04.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-05.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-06.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-07.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-08.webp",
+      "alt": "Illustration 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-09.webp",
+      "alt": "Illustration 09"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-10.webp",
+      "alt": "Illustration 10"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-11.webp",
+      "alt": "Illustration 11"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-12.webp",
+      "alt": "Illustration 12"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-13.webp",
+      "alt": "Illustration 13"
+    },
+    {
+      "type": "image",
+      "image": "/works/illustration-15.webp",
+      "alt": "Illustration 15"
+    },
+    {
+      "type": "image",
+      "image": "/works/永豐動畫.webp",
+      "alt": "永豐動畫"
+    }
+  ]
+}

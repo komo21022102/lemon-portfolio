@@ -1,0 +1,16 @@
+{
+  "slug": "motion",
+  "order": 7,
+  "name": "動態作品",
+  "fullName": "動態作品設計",
+  "en": "Motion",
+  "pageTitle": "動態作品",
+  "cover": "/works/永豐動畫.webp",
+  "works": [
+    {
+      "type": "image",
+      "image": "/works/永豐動畫.webp",
+      "alt": "永豐動畫"
+    }
+  ]
+}

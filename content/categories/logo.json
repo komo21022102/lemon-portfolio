@@ -1,0 +1,31 @@
+{
+  "slug": "logo",
+  "order": 5,
+  "name": "品牌識別",
+  "fullName": "品牌識別設計",
+  "en": "Brand Identity",
+  "pageTitle": "LOGO & CIS 品牌識別",
+  "cover": "/works/logo-cis-01.webp",
+  "works": [
+    {
+      "type": "image",
+      "image": "/works/logo-cis-01.webp",
+      "alt": "Logo Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/logo-cis-02.webp",
+      "alt": "Logo Design 02"
+    },
+    {
+      "type": "image",
+      "image": "/works/logo-cis-03.webp",
+      "alt": "Logo Design 03"
+    },
+    {
+      "type": "image",
+      "image": "/works/logo-cis-04.webp",
+      "alt": "Logo Design 04"
+    }
+  ]
+}

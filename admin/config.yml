@@ -1,0 +1,78 @@
+# 作品集後台設定（Decap CMS）
+backend:
+  name: github
+  repo: komo21022102/lemon-portfolio
+  branch: main
+  commit_messages:
+    create: "新增分類：{{slug}}"
+    update: "更新：{{slug}}"
+    delete: "刪除分類：{{slug}}"
+    uploadMedia: "上傳檔案：{{path}}"
+    deleteMedia: "刪除檔案：{{path}}"
+
+locale: zh_Hant
+site_url: https://super-mermaid-92f6fc.netlify.app
+display_url: https://super-mermaid-92f6fc.netlify.app
+
+# 上傳的圖片、影片都放在 works/；JPG/PNG/GIF 會在發布時自動轉成 WebP
+media_folder: works
+public_folder: /works
+
+collections:
+  - name: categories
+    label: 作品分類
+    label_singular: 分類
+    description: 每個分類就是網站上的一個作品頁。在「作品」清單中可以新增作品，也可以拖曳調整順序。按「發布」約 1～2 分鐘後網站就會更新。
+    folder: content/categories
+    extension: json
+    format: json
+    create: true
+    delete: false
+    identifier_field: fullName
+    slug: "{{fields.slug}}"
+    summary: "{{order}}. {{fullName}}"
+    sortable_fields: [order, fullName]
+    fields:
+      - label: 網址代號
+        name: slug
+        widget: string
+        hint: 英文小寫，例如 motion，頁面網址就會是 work-motion.html。建立後請不要更改。
+        pattern: ['^[a-z0-9-]+$', '只能使用英文小寫、數字和 -']
+      - { label: 排序, name: order, widget: number, value_type: int, hint: 數字越小越前面 }
+      - { label: 分類名稱, name: name, widget: string, hint: 顯示在首頁的作品卡片與首頁選單，例如「主視覺」 }
+      - { label: 分類全名, name: fullName, widget: string, hint: 顯示在作品頁的選單與 Other Works，例如「主視覺設計」 }
+      - { label: 英文標籤, name: en, widget: string, hint: 作品頁標題上方的小字，例如「Visual Design」 }
+      - { label: 作品頁大標題, name: pageTitle, widget: string }
+      - { label: 首頁封面圖, name: cover, widget: image }
+      - { label: 先隱藏這個分類, name: hidden, widget: boolean, default: false, required: false, hint: 打開後網站上就不會顯示這個分類 }
+      - label: 作品
+        name: works
+        label_singular: 作品
+        widget: list
+        required: false
+        hint: 點「新增作品」後選擇類型；拖曳左側把手可以調整順序。
+        types:
+          - label: 圖片
+            name: image
+            widget: object
+            summary: "圖片｜{{alt}}"
+            fields:
+              - { label: 圖片, name: image, widget: image, hint: 可以直接上傳 JPG／PNG／GIF，發布時會自動壓縮並轉成 WebP }
+              - { label: 圖片描述, name: alt, widget: string, required: false, hint: 給搜尋引擎與視障者看的簡短描述 }
+              - { label: 圖說, name: caption, widget: text, required: false, hint: 顯示在圖片下方，可以留空 }
+          - label: 影片檔（MP4）
+            name: video
+            widget: object
+            summary: "影片｜{{alt}}"
+            fields:
+              - { label: 影片檔, name: video, widget: file, hint: 建議用 MP4、20MB 以內。會自動播放、靜音、循環 }
+              - { label: 影片描述, name: alt, widget: string, required: false }
+              - { label: 圖說, name: caption, widget: text, required: false }
+          - label: 影片連結（YouTube／Vimeo）
+            name: embed
+            widget: object
+            summary: "連結｜{{alt}}"
+            fields:
+              - { label: 影片網址, name: url, widget: string, hint: 直接貼上 YouTube 或 Vimeo 的網址 }
+              - { label: 影片標題, name: alt, widget: string, required: false }
+              - { label: 圖說, name: caption, widget: text, required: false }

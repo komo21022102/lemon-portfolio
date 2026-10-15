@@ -1,0 +1,331 @@
+@import url('index.css');
+
+/* ──── Work Detail Page - New Minimalist Stacked Layout ──── */
+
+.work-page {
+    background: var(--pale);
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+/* Nav */
+.work-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.8rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(250, 247, 242, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(200, 169, 110, 0.1);
+}
+
+.work-nav-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.work-link-back {
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* On mobile/tablet, hide desktop nav-links in work pages too */
+@media (max-width: 900px) {
+    .work-nav .nav-links {
+        display: none;
+    }
+
+    .work-nav .nav-links.active {
+        display: flex;
+    }
+}
+
+.work-link-back:hover {
+    color: var(--warm);
+}
+
+/* Header Info */
+.detail-header {
+    padding: 12rem 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detail-cat {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--warm);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.detail-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.detail-info-row {
+    display: flex;
+    gap: 4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.info-item span {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    color: var(--warm);
+}
+
+/* Image Stack */
+.detail-body {
+    padding: 0 4rem 8rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.image-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.stack-item img,
+.stack-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.stack-embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stack-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.stack-empty {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 6rem 0;
+}
+
+.stack-caption {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Related Works */
+.related-section {
+    padding: 8rem 4rem;
+    background: #fff;
+    border-top: 1px solid rgba(200, 169, 110, 0.1);
+}
+
+.related-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.related-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.8rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.related-item {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.related-item:hover {
+    transform: translateY(-8px);
+}
+
+.related-thumb {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+    background: var(--pale);
+}
+
+.related-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.related-tag {
+    font-size: 0.65rem;
+    color: var(--warm);
+    letter-spacing: 0.1em;
+}
+
+/* Footer Branded */
+.page-footer {
+    background: #fffbe6;
+    padding: 8rem 4rem 10rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-logo {
+    width: 100px;
+    margin-bottom: 4rem;
+}
+
+.footer-contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* The repeating illustration line at bottom */
+.footer-pattern {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-image: url('works/lemon-about-final.webp');
+    /* Using the character as a repeat base if suitable */
+    background-size: contain;
+    background-repeat: repeat-x;
+    opacity: 0.15;
+    filter: grayscale(1);
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .work-nav {
+        padding: 1.5rem 2rem;
+    }
+
+    .detail-header,
+    .detail-body,
+    .related-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-info-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .work-nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .work-hero {
+        padding: 8rem 1.5rem 4rem;
+    }
+
+    .work-content {
+        padding: 3rem 1.5rem 6rem;
+    }
+
+    .work-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.wide {
+        grid-column: span 1;
+        aspect-ratio: 4/3;
+    }
+
+    .gallery-item.tall {
+        grid-row: span 1;
+        aspect-ratio: 4/3;
+    }
+
+    .work-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+}

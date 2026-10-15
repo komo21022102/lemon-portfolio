@@ -1,0 +1,52 @@
+{
+  "slug": "character",
+  "order": 3,
+  "name": "角色形象",
+  "fullName": "角色形象設計",
+  "en": "Character Design",
+  "pageTitle": "角色形象設計",
+  "cover": "/works/character-01.webp",
+  "works": [
+    {
+      "type": "image",
+      "image": "/works/character-01.webp",
+      "alt": "Character Design 01",
+      "caption": "針對「角色馬拉松」活動設計每個角色不同的樣貌。一場馬拉松比賽各自展現出「角色個性」的逗趣反應！鮮明的色彩，強化活動的影響力。"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-02.webp",
+      "alt": "Character Design 02"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-03.webp",
+      "alt": "Character Design 03"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-04.webp",
+      "alt": "Character Design 04"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-05.webp",
+      "alt": "Character Design 05"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-06.webp",
+      "alt": "Character Design 06"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-07.webp",
+      "alt": "Character Design 07"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-08.webp",
+      "alt": "Character Design 08"
+    }
+  ]
+}

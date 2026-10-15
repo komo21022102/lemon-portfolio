@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemon — 視覺設計師 · 插畫設計師</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+TC:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script>
+    // Force top at the earliest possible moment
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      <img src="logo.png" alt="Lemon Logo" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li class="has-dropdown">
+        <a href="#works">Works</a>
+        <ul class="dropdown">
+{{nav}}
+        </ul>
+      </li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <p class="hero-eyebrow">Visual Designer</p>
+
+    <h1 class="hero-title">
+      Lemon<em>×</em>
+    </h1>
+
+    <div class="hero-sub">
+      <p class="hero-desc">
+        哈囉! 我叫檸檬，很開心認識你<br>
+        我是一個視覺設計師<br>
+        喜歡漫步在城市與鄉間<br>
+        尋找生活中的靈感<br>
+        並且實踐它<br>
+        持續自學 AI 領域中<br>
+      </p>
+
+    </div>
+
+    <div class="scroll-indicator">
+      Scroll
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-inner">
+      <span class="marquee-item">Graphic Design</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Illustration</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Brand Identity</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Package Design</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Editorial Layout</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Character Design</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">E-Commerce Visual</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Graphic Design</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Illustration</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Brand Identity</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Package Design</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Editorial Layout</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">Character Design</span>
+      <span class="marquee-item marquee-dot">✦</span>
+      <span class="marquee-item">E-Commerce Visual</span>
+      <span class="marquee-item marquee-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-content-stack reveal">
+      <!-- 上層：引言與故事 (改為 2 欄) -->
+      <div class="about-story-row">
+        <div class="about-story-text">
+          <div class="about-me-tag">
+            <span class="line"></span>
+            <span class="tag-text">ABOUT ME</span>
+          </div>
+          <h6 class="about-poetic-heading">
+            每個視覺的背後<br>
+            <span class="highlight">都有屬於自己的故事</span>
+          </h6>
+          <div class="about-text-content">
+            <p>在設計這條路上，不知不覺也走了10年了！
+              有時候會在想，是什麼讓當初的喜好堅持了下來？
+              細思索才發現，我喜歡的是設計的過程，
+              就像在探索一個新的可能性、以及與人的合作火花，
+              除了專業、還有軟性的溝通，才結成一次次的專案果實，
+              透過作品回顧，似乎看到自己成長的軌跡</p>
+          </div>
+        </div>
+        <div class="about-story-visual">
+          <img loading="lazy" decoding="async" src="works/lemon-about-final.webp" alt="Lemon Illustration" class="about-story-img">
+        </div>
+      </div>
+
+      <!-- 中層：數據網格 (2x2) -->
+      <div class="about-stats-grid">
+        <div class="stat-card">
+          <div class="stat-inner">
+            <span class="stat-value">10</span>
+            <span class="stat-label">年設計經驗</span>
+
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-inner">
+            <span class="stat-value">8</span>
+            <span class="stat-label">項設計技能</span>
+
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-inner">
+            <span class="stat-value">3</span>
+            <span class="stat-label">年的UI經驗</span>
+
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-inner">
+            <span class="stat-value">∞</span>
+            <span class="stat-label">創意想法</span>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 中層之二：時間軸學歷背景 -->
+      <div class="timeline-edu reveal">
+        <div class="timeline-line"></div>
+
+        <!-- 教育 1 - Left -->
+        <div class="timeline-item-edu left">
+
+          <h3 class="timeline-edu-title">復興商工 美術科</h3>
+          <p class="timeline-edu-period">2007 — 2010</p>
+          <div class="timeline-edu-text">
+            美術基礎的求學時期，為日後跨領域設計打下扎實的視覺底蘊。
+          </div>
+        </div>
+
+        <!-- 教育 2 - Right -->
+        <div class="timeline-item-edu right">
+
+          <h3 class="timeline-edu-title">明志科技大學 視傳系</h3>
+          <p class="timeline-edu-period">2011 — 2014</p>
+          <div class="timeline-edu-text">
+            在校期間專注於視覺色彩與品牌規劃，提前入職場打滾一年的實習，累積了許多業界務實經驗！
+          </div>
+        </div>
+
+        <!-- 教育 3 - Left -->
+        <div class="timeline-item-edu left">
+
+          <h3 class="timeline-edu-title">各式設計領域就業</h3>
+          <p class="timeline-edu-period">Work</p>
+          <div class="timeline-edu-text">
+            平面｜包裝｜視覺｜網頁UI<br>
+            持續精進數位工具應用能力，將美術與商業設計結合。
+          </div>
+        </div>
+
+        <!-- 教育 4 - Right -->
+        <div class="timeline-item-edu right">
+
+          <h3 class="timeline-edu-title">接案經歷</h3>
+          <p class="timeline-edu-period">skill</p>
+          <div class="timeline-edu-text">
+            將所做所學運用在各式專案上、並且在其中發揮設計與溝通的軟實力。
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="works-header reveal">
+      <h2>Works</h2>
+      <a href="https://www.behance.net/kkkomo2102" target="_blank" class="works-view-all">
+        View All
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="works-grid">
+{{worksGrid}}
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <!-- CONTACT / FOOTER -->
+    <section id="contact" class="reveal">
+      <p class="contact-label">Let's Work Together</p>
+      <h5 class="contact-heading">一起合作 · 創造更多</h5>
+
+      <img src="logo.png" alt="Lemon" class="footer-logo">
+
+      <div class="footer-contact-links">
+
+        <a href="mailto:komo2102@gmail.com" class="footer-link">Email</a>
+
+        <a href="https://www.behance.net/kkkomo2102" target="_blank" class="footer-link">Behance</a>
+
+        <a href="https://www.instagram.com/ball_ball_cute?igsh=MTl1d2VodnV4YzM5aw%3D%3D&amp;utm_source=qr"
+          target="_blank" class="footer-link footer-ig" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg>
+          IG
+        </a>
+        <!-- <a href="https://drive.google.com/drive/folders/1jJ5G-HrrVJPFGZY2XXpPMHOPz_28PYBB?usp=sharing" target="_blank"
+          class="footer-link">Portfolio</a> -->
+      </div>
+
+      <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <p style="font-size: 0.65rem; color: #999; letter-spacing: 0.15em; margin-top: 2rem;">
+        © 2026 Lemon Design
+      </p>
+
+      <div class="footer-pattern"></div>
+    </section>
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

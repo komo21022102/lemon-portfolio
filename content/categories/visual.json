@@ -1,0 +1,51 @@
+{
+  "slug": "visual",
+  "order": 1,
+  "name": "主視覺",
+  "fullName": "主視覺設計",
+  "en": "Visual Design",
+  "pageTitle": "主視覺設計",
+  "cover": "/works/visual-01.webp",
+  "works": [
+    {
+      "type": "image",
+      "image": "/works/visual-01.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-02.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-03.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-04.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-05.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-06.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-07.webp",
+      "alt": "Visual Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/visual-08.webp",
+      "alt": "Visual Design 01"
+    }
+  ]
+}
