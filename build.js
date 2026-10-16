@@ -11,7 +11,7 @@ const DIST = path.join(ROOT, 'dist');
 const MAX_WIDTH = 2000;
 const MAX_BYTES = 500 * 1024;
 const CONVERT_EXT = ['.jpg', '.jpeg', '.png', '.gif'];
-const STATIC_FILES = ['index.css', 'work.css', 'script.js', 'logo.png'];
+const STATIC_FILES = ['index.css', 'work.css', 'script.js', 'lightbox.js', 'logo.png'];
 const STATIC_DIRS = ['admin'];
 
 const esc = s => String(s ?? '')
@@ -35,7 +35,7 @@ async function toWebp(src, dest) {
   const animated = path.extname(src).toLowerCase() === '.gif';
   const meta = await sharp(src, { animated }).metadata();
   for (const quality of [82, 76, 70, 64, 58, 52]) {
-    let img = sharp(src, { animated });
+    let img = sharp(src, { animated }).rotate();
     if (meta.width > MAX_WIDTH) img = img.resize({ width: MAX_WIDTH });
     const buf = await img.webp({ quality, effort: 5 }).toBuffer();
     if (buf.length <= MAX_BYTES || quality === 52) {
@@ -43,6 +43,33 @@ async function toWebp(src, dest) {
       return { quality, kb: Math.round(buf.length / 1024) };
     }
   }
+}
+
+// Grid thumbnails: 4:3 crops (top-aligned, so tall posters show their header) kept small so a
+// category page with many works stays fast. Animated files are used as they are.
+const THUMB_W = 900;
+const THUMB_H = 675;
+const thumbs = new Set();
+
+// "works/a.webp" -> "works/thumbs/a.webp" when a thumbnail exists, otherwise the file itself
+function thumbPath(p) {
+  const name = path.basename(p);
+  return thumbs.has(name) ? `works/thumbs/${name}` : p;
+}
+
+async function makeThumb(src, builtFile, outName) {
+  const dir = path.join(DIST, 'works', 'thumbs');
+  fs.mkdirSync(dir, { recursive: true });
+  const dest = path.join(dir, outName);
+  const meta = await sharp(src, { animated: true }).metadata();
+  if ((meta.pages || 1) > 1) {
+    fs.copyFileSync(builtFile, dest);
+  } else {
+    await sharp(src).rotate()
+      .resize({ width: THUMB_W, height: THUMB_H, fit: 'cover', position: 'top' })
+      .webp({ quality: 78 }).toFile(dest);
+  }
+  thumbs.add(outName);
 }
 
 async function buildMedia() {
@@ -68,8 +95,10 @@ async function buildMedia() {
       const out = outMap.get(`works/${name}`).slice('works/'.length);
       const r = await toWebp(src, path.join(outDir, out));
       console.log(`  webp  ${name} -> ${out} (q${r.quality}, ${r.kb}KB)`);
+      await makeThumb(src, path.join(outDir, out), out);
     } else {
       fs.copyFileSync(src, path.join(outDir, name));
+      if (ext === '.webp') await makeThumb(src, path.join(outDir, name), name);
     }
   }
 }
@@ -82,18 +111,37 @@ function embedUrl(url) {
   return url;
 }
 
-function renderWork(w, i) {
-  const lazy = i === 0 ? '' : ' loading="lazy" decoding="async"';
-  let media;
+function youtubeId(url) {
+  const m = String(url).match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);
+  return m ? m[1] : null;
+}
+
+// One grid tile per work; clicking it opens the big view (see lightbox.js, which reads the data-* attributes)
+function renderTile(w, i) {
+  const lazy = i < 6 ? '' : ' loading="lazy"';
+  let type = 'image', src, thumb, badge = '';
   if (w.type === 'video') {
-    media = `<video src="${esc(mediaPath(w.video))}" autoplay muted loop playsinline preload="${i === 0 ? 'auto' : 'metadata'}"></video>`;
+    type = 'video';
+    src = mediaPath(w.video);
+    thumb = `<video src="${esc(src)}#t=0.1" muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>`;
+    badge = '<span class="tile-badge" aria-hidden="true"></span>';
   } else if (w.type === 'embed') {
-    media = `<div class="stack-embed"><iframe src="${esc(embedUrl(w.url))}" title="${esc(w.alt)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+    type = 'embed';
+    src = embedUrl(w.url);
+    const id = youtubeId(w.url);
+    thumb = id
+      ? `<img${lazy} decoding="async" src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${id}/hqdefault.jpg'" alt="">`
+      : '<span class="tile-placeholder" aria-hidden="true"></span>';
+    badge = '<span class="tile-badge" aria-hidden="true"></span>';
   } else {
-    media = `<img${lazy} src="${esc(mediaPath(w.image))}" alt="${esc(w.alt)}">`;
+    src = mediaPath(w.image);
+    thumb = `<img${lazy} decoding="async" src="${esc(thumbPath(src))}" alt="${esc(w.alt)}">`;
   }
-  const caption = w.caption ? `\n                <p class="stack-caption">${esc(w.caption).replace(/\n/g, '<br>')}</p>` : '';
-  return `            <div class="stack-item">\n                ${media}${caption}\n            </div>`;
+  const label = w.alt ? `查看大圖：${w.alt}` : `查看作品 ${i + 1}`;
+  const caption = w.caption ? ` data-caption="${esc(w.caption)}"` : '';
+  return `            <button type="button" class="grid-item" data-type="${type}" data-src="${esc(src)}" data-alt="${esc(w.alt)}"${caption} aria-label="${esc(label)}">
+                <span class="grid-thumb">${thumb}${badge}</span>
+            </button>`;
 }
 
 function loadCategories() {
@@ -132,7 +180,7 @@ function buildPages(cats) {
                 <div class="related-tag">${esc(o.en)}</div>
             </a>`).join('\n');
     const works = (c.works || []).length
-      ? c.works.map(renderWork).join('\n\n')
+      ? c.works.map(renderTile).join('\n')
       : '            <p class="stack-empty">作品準備中，敬請期待。</p>';
     fs.writeFileSync(path.join(DIST, page(c)), fill(workTpl, {
       title: `${esc(c.fullName)} — Lemon Portfolio`,

@@ -50,7 +50,7 @@ collections:
         label_singular: 作品
         widget: list
         required: false
-        hint: 點「新增作品」後選擇類型；拖曳左側把手可以調整順序。
+        hint: 作品在網站上會以縮圖排成一排 3 個（縮圖固定 4:3，長圖顯示上半部），訪客點縮圖會跳出視窗看完整大圖。點「新增作品」後選擇類型；拖曳左側把手可以調整順序。
         types:
           - label: 圖片
             name: image
@@ -59,7 +59,7 @@ collections:
             fields:
               - { label: 圖片, name: image, widget: image, hint: 可以直接上傳 JPG／PNG／GIF，發布時會自動壓縮並轉成 WebP }
               - { label: 圖片描述, name: alt, widget: string, required: false, hint: 給搜尋引擎與視障者看的簡短描述 }
-              - { label: 圖說, name: caption, widget: text, required: false, hint: 顯示在圖片下方，可以留空 }
+              - { label: 圖說, name: caption, widget: text, required: false, hint: 點開大圖後顯示在作品下方，可以留空 }
           - label: 影片檔（MP4）
             name: video
             widget: object

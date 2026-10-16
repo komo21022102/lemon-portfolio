@@ -106,43 +106,96 @@
     margin: 0 auto;
 }
 
-.image-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+/* Works grid: 3 columns on desktop, as many rows as there are works */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
 }
 
-.stack-item img {
-    width: 100%;
-    height: auto;
+.grid-item {
     display: block;
-    border-radius: 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    cursor: none;
 }
 
-/* Videos keep their own ratio; tall/square ones are capped so they never overflow the screen */
-.stack-item video {
-    display: block;
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 85vh;
-    margin: 0 auto;
-    border-radius: 4px;
+.grid-item:focus-visible {
+    outline: 2px solid var(--warm);
+    outline-offset: 3px;
 }
 
-.stack-embed {
+.grid-thumb {
     position: relative;
-    aspect-ratio: 16 / 9;
-    border-radius: 4px;
+    display: block;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    border-radius: 4px;
+    background: #ece6db;
 }
 
-.stack-embed iframe {
+.grid-thumb img,
+.grid-thumb video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    border: 0;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s ease;
+}
+
+.grid-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 24, 0);
+    transition: background 0.4s ease;
+    pointer-events: none;
+}
+
+.grid-item:hover .grid-thumb img,
+.grid-item:hover .grid-thumb video,
+.grid-item:focus-visible .grid-thumb img,
+.grid-item:focus-visible .grid-thumb video {
+    transform: scale(1.05);
+}
+
+.grid-item:hover .grid-thumb::after,
+.grid-item:focus-visible .grid-thumb::after {
+    background: rgba(26, 26, 24, 0.07);
+}
+
+/* Play mark on video tiles */
+.tile-badge {
+    position: absolute;
+    right: 0.9rem;
+    bottom: 0.9rem;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.tile-badge::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+    border-style: solid;
+    border-width: 7px 0 7px 11px;
+    border-color: transparent transparent transparent var(--ink);
+}
+
+.tile-placeholder {
+    position: absolute;
+    inset: 0;
 }
 
 .stack-empty {
@@ -153,15 +206,158 @@
     padding: 6rem 0;
 }
 
-.stack-caption {
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-    color: var(--muted);
+/* Big view (pop-up). Light background and z-index below the custom cursor so the cursor stays visible */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    background: rgba(250, 247, 242, 0.97);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lb-btn {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid rgba(26, 26, 24, 0.15);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--ink);
+    cursor: none;
+    transition: background 0.25s, border-color 0.25s;
+}
+
+.lb-btn:hover,
+.lb-btn:focus-visible {
+    background: #fff;
+    border-color: var(--warm);
+}
+
+.lb-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.lb-close {
+    top: 1.25rem;
+    right: 1.5rem;
+}
+
+.lb-prev,
+.lb-next {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lb-prev {
+    left: 1.5rem;
+}
+
+.lb-next {
+    right: 1.5rem;
+}
+
+.lightbox.is-single .lb-prev,
+.lightbox.is-single .lb-next {
+    display: none;
+}
+
+.lb-stage {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    overflow: auto;
+    padding: 4.5rem 6rem 1rem;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.lb-stage.is-loading {
+    opacity: 0;
+}
+
+/* margin:auto centres short content and lets tall content scroll from its top */
+.lb-stage > * {
+    margin: auto;
+}
+
+.lb-stage img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 12rem);
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Tall posters: show at a readable width and scroll inside the pop-up */
+.lb-stage img.is-tall {
+    max-height: none;
+    width: min(100%, 900px);
+}
+
+.lb-stage video {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 12rem);
+    border-radius: 4px;
+    background: #000;
+}
+
+.lb-embed {
+    width: min(100%, 1100px);
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #000;
+}
+
+.lb-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.lb-meta {
+    flex: none;
+    padding: 0.8rem 2rem 1.4rem;
     text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.lb-caption {
+    max-width: 640px;
+    margin: 0 auto 0.6rem;
+    font-size: 0.8rem;
     line-height: 1.8;
+    color: var(--muted);
+    white-space: pre-line;
+}
+
+.lb-caption:empty {
+    display: none;
+}
+
+.lb-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--warm);
 }
 
 /* Related Works */
@@ -337,5 +533,53 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem;
+    }
+}
+
+/* Works grid + pop-up on smaller screens */
+@media (max-width: 900px) {
+    .work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lb-stage {
+        padding: 4.5rem 1rem 0.5rem;
+    }
+
+    .lb-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lb-close {
+        top: 0.9rem;
+        right: 0.9rem;
+    }
+
+    .lb-prev,
+    .lb-next {
+        top: auto;
+        bottom: 0.9rem;
+        transform: none;
+    }
+
+    .lb-prev {
+        left: 0.9rem;
+    }
+
+    .lb-next {
+        right: 0.9rem;
+    }
+
+    .lb-meta {
+        padding: 0.5rem 4rem 1rem;
+        min-height: 3.5rem;
     }
 }
