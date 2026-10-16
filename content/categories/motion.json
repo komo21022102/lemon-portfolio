@@ -11,6 +11,21 @@
       "type": "image",
       "image": "/works/永豐動畫.webp",
       "alt": "永豐動畫"
+    },
+    {
+      "type": "video",
+      "video": "/works/motion-app-intro.mp4",
+      "alt": "App 進場動畫"
+    },
+    {
+      "type": "video",
+      "video": "/works/motion-calico-cat.mp4",
+      "alt": "三花小動畫"
+    },
+    {
+      "type": "video",
+      "video": "/works/motion-key-visual.mp4",
+      "alt": "主視覺動畫"
     }
   ]
 }

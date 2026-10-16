@@ -112,11 +112,21 @@
     gap: 4rem;
 }
 
-.stack-item img,
-.stack-item video {
+.stack-item img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 4px;
+}
+
+/* Videos keep their own ratio; tall/square ones are capped so they never overflow the screen */
+.stack-item video {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 85vh;
+    margin: 0 auto;
     border-radius: 4px;
 }
 
