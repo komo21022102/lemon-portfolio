@@ -156,3 +156,10 @@ window.addEventListener('pageshow', (event) => {
   }
 });
 
+// Category tabs on work pages: bring the current tab into view when the bar scrolls sideways (phones)
+(() => {
+  const bar = document.getElementById('catTabs');
+  const tab = bar && bar.querySelector('.is-active');
+  if (!tab) return;
+  bar.scrollLeft = tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2;
+})();

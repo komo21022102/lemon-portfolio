@@ -179,12 +179,13 @@ function buildPages(cats) {
                 <div class="related-name">${esc(o.fullName)}</div>
                 <div class="related-tag">${esc(o.en)}</div>
             </a>`).join('\n');
+    const tabs = cats.map(o => `            <a href="${page(o)}" class="cat-tab${o === c ? ' is-active' : ''}"${o === c ? ' aria-current="page"' : ''}>${esc(o.name)}</a>`).join('\n');
     const works = (c.works || []).length
       ? c.works.map(renderTile).join('\n')
       : '            <p class="stack-empty">作品準備中，敬請期待。</p>';
     fs.writeFileSync(path.join(DIST, page(c)), fill(workTpl, {
       title: `${esc(c.fullName)} — Lemon Portfolio`,
-      nav: workNav, en: esc(c.en), pageTitle: esc(c.pageTitle), works, related,
+      nav: workNav, tabs, en: esc(c.en), pageTitle: esc(c.pageTitle), works, related,
     }));
     console.log(`  page  ${page(c)} (${(c.works || []).length} works)`);
   });

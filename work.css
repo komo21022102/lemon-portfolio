@@ -62,9 +62,52 @@
 
 /* Header Info */
 .detail-header {
-    padding: 12rem 4rem 4rem;
-    max-width: 1200px;
+    padding: 8.5rem 4rem 3rem;
+    max-width: 1400px; /* same width as the works grid, so the tab bar and the grid line up */
     margin: 0 auto;
+}
+
+/* Category tabs: switch between work categories without going back to the home page */
+.cat-tabs {
+    display: flex;
+    gap: 2.4rem;
+    margin: 0 0 3.5rem;
+    border-bottom: 1px solid rgba(26, 26, 24, 0.12);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cat-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-tab {
+    flex: none;
+    padding: 0 0.1rem 1rem;
+    margin-bottom: -1px;
+    border-bottom: 2px solid transparent;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.25s, border-color 0.25s;
+}
+
+.cat-tab:hover {
+    color: var(--ink);
+}
+
+.cat-tab:focus-visible {
+    outline: 2px solid var(--warm);
+    outline-offset: 4px;
+}
+
+.cat-tab.is-active {
+    color: var(--ink);
+    font-weight: 400;
+    border-bottom-color: var(--ink);
 }
 
 .detail-cat {
