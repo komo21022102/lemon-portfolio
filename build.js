@@ -18,10 +18,15 @@ const esc = s => String(s ?? '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fill = (tpl, vars) => tpl.replace(/\{\{(\w+)\}\}/g, (_, k) => vars[k] ?? '');
 
-// "/works/a.jpg" -> "works/a.webp" (the path the built page should point to)
+// Where each converted upload ends up: "works/a.jpg" -> "works/a.webp" (or "works/a-upload.webp"
+// when an existing a.webp, or another a.png/a.gif, would otherwise be overwritten).
+const outMap = new Map();
+
+// "/works/a.jpg" -> the path the built page should point to
 function mediaPath(p) {
   if (!p) return '';
   p = p.replace(/^\/+/, '');
+  if (outMap.has(p)) return outMap.get(p);
   const ext = path.extname(p).toLowerCase();
   return CONVERT_EXT.includes(ext) ? p.slice(0, -ext.length) + '.webp' : p;
 }
@@ -44,13 +49,25 @@ async function buildMedia() {
   const srcDir = path.join(ROOT, 'works');
   const outDir = path.join(DIST, 'works');
   fs.mkdirSync(outDir, { recursive: true });
-  for (const name of fs.readdirSync(srcDir)) {
-    if (name.startsWith('.')) continue;
+  const names = fs.readdirSync(srcDir).filter(n => !n.startsWith('.'));
+  const stem = n => n.slice(0, -path.extname(n).length);
+  const taken = new Set(names.filter(n => !CONVERT_EXT.includes(path.extname(n).toLowerCase())).map(n => n.toLowerCase()));
+  for (const name of names) {
+    const ext = path.extname(name).toLowerCase();
+    if (!CONVERT_EXT.includes(ext)) continue;
+    let out = stem(name) + '.webp';
+    for (let i = 1; taken.has(out.toLowerCase()); i++) out = `${stem(name)}-upload${i > 1 ? i : ''}.webp`;
+    taken.add(out.toLowerCase());
+    outMap.set(`works/${name}`, `works/${out}`);
+    if (out !== stem(name) + '.webp') console.log(`  note  ${name} shares a name with another file, saved as ${out}`);
+  }
+  for (const name of names) {
     const src = path.join(srcDir, name);
     const ext = path.extname(name).toLowerCase();
     if (CONVERT_EXT.includes(ext)) {
-      const r = await toWebp(src, path.join(outDir, mediaPath(name)));
-      console.log(`  webp  ${name} -> ${mediaPath(name)} (q${r.quality}, ${r.kb}KB)`);
+      const out = outMap.get(`works/${name}`).slice('works/'.length);
+      const r = await toWebp(src, path.join(outDir, out));
+      console.log(`  webp  ${name} -> ${out} (q${r.quality}, ${r.kb}KB)`);
     } else {
       fs.copyFileSync(src, path.join(outDir, name));
     }
