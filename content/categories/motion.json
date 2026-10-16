@@ -26,6 +26,11 @@
       "type": "video",
       "video": "/works/motion-key-visual.mp4",
       "alt": "主視覺動畫"
+    },
+    {
+      "type": "embed",
+      "url": "https://youtu.be/r9ug-2ntLzU",
+      "alt": "黛莉貝爾 AI虛擬人影片製作"
     }
   ]
 }
