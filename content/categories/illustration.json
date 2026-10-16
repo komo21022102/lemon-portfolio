@@ -82,6 +82,16 @@
       "type": "image",
       "image": "/works/永豐動畫.webp",
       "alt": "永豐動畫"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-02.jpg",
+      "alt": "臺灣科普環島列車主視覺"
+    },
+    {
+      "type": "image",
+      "image": "/works/character-03.jpg",
+      "alt": "公司活動形象牆插畫設計"
     }
   ]
 }
