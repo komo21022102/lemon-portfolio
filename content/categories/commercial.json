@@ -5,27 +5,127 @@
   "fullName": "商業作品設計",
   "en": "E-Commerce",
   "pageTitle": "商業設計",
-  "cover": "/works/commercial-01.webp",
+  "cover": "/works/bizdesign-01.webp",
   "works": [
     {
       "type": "image",
-      "image": "/works/commercial-01.webp",
+      "image": "/works/bizdesign-01.webp",
       "alt": "Commercial Design 01"
     },
     {
       "type": "image",
-      "image": "/works/commercial-02.webp",
+      "image": "/works/bizdesign-02.webp",
       "alt": "Commercial Design 02"
     },
     {
       "type": "image",
-      "image": "/works/commercial-03.webp",
+      "image": "/works/bizdesign-03.webp",
       "alt": "Commercial Design 03"
     },
     {
       "type": "image",
-      "image": "/works/commercial-04.webp",
+      "image": "/works/bizdesign-04.webp",
       "alt": "Commercial Design 04"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-05.webp",
+      "alt": "Commercial Design 05"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-06.webp",
+      "alt": "Commercial Design 06"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-07.webp",
+      "alt": "Commercial Design 07"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-08.webp",
+      "alt": "Commercial Design 08"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-10.webp",
+      "alt": "Commercial Design 10"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-11.webp",
+      "alt": "Commercial Design 11"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-12.webp",
+      "alt": "Commercial Design 12"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-14.webp",
+      "alt": "Commercial Design 14"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-15.webp",
+      "alt": "Commercial Design 15"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-16.webp",
+      "alt": "Commercial Design 16"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-17.webp",
+      "alt": "Commercial Design 17"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-18.webp",
+      "alt": "Commercial Design 18"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-19.webp",
+      "alt": "Commercial Design 19"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-20.webp",
+      "alt": "Commercial Design 20"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-21.webp",
+      "alt": "Commercial Design 21"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-22.webp",
+      "alt": "Commercial Design 22"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-23.webp",
+      "alt": "Commercial Design 23"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-24.webp",
+      "alt": "Commercial Design 24"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-25.webp",
+      "alt": "Commercial Design 25"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-27.webp",
+      "alt": "Commercial Design 27"
     }
   ]
 }

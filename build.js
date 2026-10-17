@@ -11,7 +11,7 @@ const DIST = path.join(ROOT, 'dist');
 const MAX_WIDTH = 2000;
 const MAX_BYTES = 500 * 1024;
 const CONVERT_EXT = ['.jpg', '.jpeg', '.png', '.gif'];
-const STATIC_FILES = ['index.css', 'work.css', 'script.js', 'lightbox.js', 'logo.png'];
+const STATIC_FILES = ['index.css', 'work.css', 'custom.css', 'script.js', 'custom.js', 'lightbox.js', 'logo.png'];
 const STATIC_DIRS = ['admin'];
 
 const esc = s => String(s ?? '')
@@ -169,6 +169,11 @@ function buildPages(cats) {
         </div>
       </a>`).join('\n\n');
   fs.writeFileSync(path.join(DIST, 'index.html'), fill(indexTpl, { nav: indexNav, worksGrid: grid }));
+
+  // Q版似顏繪 page (static content, only the Works dropdown is filled in)
+  const customTpl = fs.readFileSync(path.join(ROOT, 'templates', 'custom.html'), 'utf8');
+  fs.writeFileSync(path.join(DIST, 'custom.html'), fill(customTpl, { nav: workNav }));
+  console.log('  page  custom.html');
 
   cats.forEach((c, idx) => {
     // "Other Works": the next 4 categories after this one, wrapping around

@@ -1466,3 +1466,45 @@ footer {
         display: none;
     }
 }
+/* Q版似顏繪 teaser (home) */
+#custom-teaser {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 2rem 2rem;
+    text-align: center;
+}
+
+.teaser-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0.8rem 0 1.2rem;
+}
+
+.teaser-desc {
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--muted);
+}
+
+.teaser-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+}
+
+.teaser-btn:hover {
+    background: var(--ink);
+    color: #fff;
+}
