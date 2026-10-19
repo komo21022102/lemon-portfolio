@@ -2,7 +2,7 @@
   "slug": "logo",
   "order": 5,
   "name": "品牌識別",
-  "fullName": "品牌識別設計",
+  "fullName": "品牌識別",
   "en": "Brand Identity",
   "pageTitle": "LOGO & CIS 品牌識別",
   "cover": "/works/logo-cis-01.webp",
@@ -10,22 +10,22 @@
     {
       "type": "image",
       "image": "/works/logo-cis-01.webp",
-      "alt": "Logo Design 01"
+      "alt": "魚路古道的秘密 手冊設計"
     },
     {
       "type": "image",
       "image": "/works/logo-cis-02.webp",
-      "alt": "Logo Design 02"
+      "alt": "永恆團隊 Eternal Financial Planning"
     },
     {
       "type": "image",
       "image": "/works/logo-cis-03.webp",
-      "alt": "Logo Design 03"
+      "alt": "私 Xin premium"
     },
     {
       "type": "image",
       "image": "/works/logo-cis-04.webp",
-      "alt": "Logo Design 04"
+      "alt": "蘇木堂 LOGO 設計"
     }
   ]
 }
