@@ -1,10 +1,10 @@
 {
   "slug": "commercial",
   "order": 4,
-  "name": "商業設計",
-  "fullName": "商業作品設計",
+  "name": "商業",
+  "fullName": "商業作品",
   "en": "E-Commerce",
-  "pageTitle": "商業設計",
+  "pageTitle": "商業",
   "cover": "/works/bizdesign-01.webp",
   "works": [
     {
@@ -126,6 +126,11 @@
       "type": "image",
       "image": "/works/bizdesign-27.webp",
       "alt": "Commercial Design 27"
+    },
+    {
+      "type": "image",
+      "image": "/works/bizdesign-28.webp",
+      "alt": "Commercial Design 28"
     }
   ]
 }

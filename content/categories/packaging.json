@@ -1,0 +1,26 @@
+{
+  "slug": "packaging",
+  "order": 8,
+  "name": "包裝",
+  "fullName": "包裝",
+  "en": "Packaging",
+  "pageTitle": "包裝",
+  "cover": "/works/packaging-01.webp",
+  "works": [
+    {
+      "type": "image",
+      "image": "/works/packaging-01.webp",
+      "alt": "Packaging Design 01"
+    },
+    {
+      "type": "image",
+      "image": "/works/packaging-02.webp",
+      "alt": "Packaging Design 02"
+    },
+    {
+      "type": "image",
+      "image": "/works/packaging-03.webp",
+      "alt": "Packaging Design 03"
+    }
+  ]
+}
