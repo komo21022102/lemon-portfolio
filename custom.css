@@ -38,7 +38,7 @@
     border-radius: 999px;
     background: transparent;
     font: inherit;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     letter-spacing: 0.12em;
     color: var(--ink);
     text-decoration: none;
@@ -78,7 +78,7 @@
 
 .cu-note {
     margin-top: 1.4rem;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.9;
     color: var(--muted);
 }
@@ -98,7 +98,7 @@
 
 .cu-card-no {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.3em;
     color: var(--warm);
     margin-bottom: 0.8rem;
@@ -114,7 +114,7 @@
 .cu-card ul,
 .cu-list {
     list-style: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.9;
     color: var(--muted);
 }
@@ -147,7 +147,7 @@
     counter-increment: step;
     padding-top: 1rem;
     border-top: 1px solid var(--ink);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.8;
     color: var(--muted);
 }
@@ -258,7 +258,7 @@
 }
 
 .cu-sub {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--muted);
 }
 
