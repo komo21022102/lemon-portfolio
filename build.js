@@ -45,10 +45,10 @@ async function toWebp(src, dest) {
   }
 }
 
-// Grid thumbnails: 3:2 crops (top-aligned, so tall posters show their header) kept small so a
+// Grid thumbnails: 16:10 crops (top-aligned, so tall posters show their header) kept small so a
 // category page with many works stays fast. Animated files are used as they are.
 const THUMB_W = 900;
-const THUMB_H = 600;
+const THUMB_H = 563;
 const thumbs = new Set();
 
 // "works/a.webp" -> "works/thumbs/a.webp" when a thumbnail exists, otherwise the file itself
