@@ -44,6 +44,15 @@ collections:
       - { label: 英文標籤, name: en, widget: string, hint: 作品頁標題上方的小字，例如「Visual Design」 }
       - { label: 作品頁大標題, name: pageTitle, widget: string }
       - { label: 首頁封面圖, name: cover, widget: image }
+      - label: 影片頻道
+        name: channel
+        widget: object
+        required: false
+        collapsed: true
+        hint: 顯示在作品下方的頻道連結，不需要就留空
+        fields:
+          - { label: 頻道網址, name: url, widget: string, required: false, hint: 例如 https://www.youtube.com/@2102komo }
+          - { label: 頻道名稱, name: name, widget: string, required: false, hint: 例如 @2102komo }
       - { label: 先隱藏這個分類, name: hidden, widget: boolean, default: false, required: false, hint: 打開後網站上就不會顯示這個分類 }
       - label: 作品
         name: works
@@ -67,6 +76,7 @@ collections:
             fields:
               - { label: 影片檔, name: video, widget: file, hint: 建議用 MP4、20MB 以內。會自動播放、靜音、循環 }
               - { label: 影片描述, name: alt, widget: string, required: false }
+              - { label: 封面秒數, name: thumbAt, widget: number, value_type: float, required: false, hint: 縮圖要用影片第幾秒的畫面，留空就用開頭 }
               - { label: 圖說, name: caption, widget: text, required: false }
           - label: 影片連結（YouTube／Vimeo）
             name: embed

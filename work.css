@@ -626,3 +626,75 @@
         min-height: 3.5rem;
     }
 }
+
+/* Video channel link under the works grid */
+.channel-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 1.75rem 2rem;
+    background: #fff;
+    border: 1px solid rgba(200, 169, 110, 0.25);
+    border-radius: 4px;
+    color: var(--ink);
+    text-decoration: none;
+    cursor: none;
+    transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.channel-card:hover,
+.channel-card:focus-visible {
+    border-color: var(--warm);
+    transform: translateY(-4px);
+}
+
+.channel-icon svg {
+    display: block;
+    width: 44px;
+    height: 44px;
+    fill: #ff0033;
+}
+
+.channel-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.channel-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--warm);
+}
+
+.channel-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+}
+
+.channel-cta {
+    margin-left: auto;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+}
+
+@media (max-width: 600px) {
+    .channel-card {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .channel-cta {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Video tiles crop around the middle so vertical (9:16) videos show their subject */
+.grid-thumb video {
+    object-position: center;
+}

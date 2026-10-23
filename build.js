@@ -123,7 +123,7 @@ function renderTile(w, i) {
   if (w.type === 'video') {
     type = 'video';
     src = mediaPath(w.video);
-    thumb = `<video src="${esc(src)}#t=0.1" muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>`;
+    thumb = `<video src="${esc(src)}#t=${Number(w.thumbAt) || 0.1}" muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>`;
     badge = '<span class="tile-badge" aria-hidden="true"></span>';
   } else if (w.type === 'embed') {
     type = 'embed';
@@ -142,6 +142,21 @@ function renderTile(w, i) {
   return `            <button type="button" class="grid-item" data-type="${type}" data-src="${esc(src)}" data-alt="${esc(w.alt)}"${caption} aria-label="${esc(label)}">
                 <span class="grid-thumb">${thumb}${badge}</span>
             </button>`;
+}
+
+// Optional link to a video channel, shown under the works grid (e.g. the YouTube channel on 動態作品)
+function renderChannel(ch) {
+  if (!ch || !ch.url) return '';
+  return `        <a href="${esc(ch.url)}" target="_blank" rel="noopener" class="channel-card">
+            <span class="channel-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg>
+            </span>
+            <span class="channel-text">
+                <span class="channel-label">YouTube Channel</span>
+                <span class="channel-name">${esc(ch.name || ch.url)}</span>
+            </span>
+            <span class="channel-cta">${esc(ch.cta || '前往頻道看更多影片')} <span aria-hidden="true">→</span></span>
+        </a>`;
 }
 
 function loadCategories() {
@@ -190,7 +205,7 @@ function buildPages(cats) {
       : '            <p class="stack-empty">作品準備中，敬請期待。</p>';
     fs.writeFileSync(path.join(DIST, page(c)), fill(workTpl, {
       title: `${esc(c.fullName)} — Lemon Portfolio`,
-      nav: workNav, tabs, en: esc(c.en), pageTitle: esc(c.pageTitle), works, related,
+      nav: workNav, tabs, en: esc(c.en), pageTitle: esc(c.pageTitle), works, channel: renderChannel(c.channel), related,
     }));
     console.log(`  page  ${page(c)} (${(c.works || []).length} works)`);
   });

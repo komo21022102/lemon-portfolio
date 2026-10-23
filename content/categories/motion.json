@@ -6,6 +6,10 @@
   "en": "Motion",
   "pageTitle": "動態作品",
   "cover": "/works/永豐動畫.webp",
+  "channel": {
+    "url": "https://www.youtube.com/@2102komo",
+    "name": "@2102komo"
+  },
   "works": [
     {
       "type": "image",
@@ -26,6 +30,12 @@
       "type": "video",
       "video": "/works/motion-key-visual.mp4",
       "alt": "主視覺動畫"
+    },
+    {
+      "type": "video",
+      "video": "/works/motion-damo-pitch.mp4",
+      "alt": "大摩比稿",
+      "thumbAt": 8
     },
     {
       "type": "embed",
